@@ -40,9 +40,13 @@ function Invoke-BatchFile {
 	Remove-Item $tempFile
 }
 
-$vcvarsall = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"
+if (Test-Path -Path "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" -PathType Leaf) {
+	$vcvarsall = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"
+} elseif (Test-Path -Path "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" -PathType Leaf) {
+	$vcvarsall = "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"
+}
 
-if (Test-Path -Path "$vcvarsall" -PathType Leaf) {
+if ($vcvarsall) {
 	& {
 		Invoke-BatchFile "$vcvarsall" x64 uwp
 	} 6>&1 5>&1 4>&1 > $null # redirect non error/warning output streams to null
