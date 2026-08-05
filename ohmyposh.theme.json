@@ -1,0 +1,76 @@
+{
+	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"blocks": [
+		{
+			"alignment": "left",
+			"segments": [
+				{
+					"foreground": "#98C379",
+					"style": "plain",
+					"template": "┌",
+					"type": "text"
+				},
+				{
+					"foreground": "#56B6C2",
+					"properties": {
+						"style": "folder"
+					},
+					"style": "plain",
+					"template": " {{ .Path }} ",
+					"type": "path"
+				},
+				{
+					"foreground": "#D0666F",
+					"properties": {
+						"branch_icon": ""
+					},
+					"style": "plain",
+					"template": "<#5FAAE8>git:(</>{{ .HEAD }}<#5FAAE8>)</>",
+					"type": "git"
+				}
+			],
+			"type": "prompt"
+		},
+		{
+			"alignment": "right",
+			"segments": [
+				{
+					"type": "upgrade",
+					"style": "plain",
+					"foreground": "#111111",
+					"background": "#FFD664",
+					"properties": {
+						"cache_duration": "168h"
+					}
+				},
+				{
+					"type": "executiontime",
+					"style": "plain",
+					"foreground": "#ffffff",
+					"template": " ↖{{ .FormattedMs }}",
+					"properties": {
+						"threshold": 500,
+						"style": "austin",
+						"always_enabled": true
+					}
+				}
+			],
+			"type": "prompt"
+		},
+		{
+			"alignment": "left",
+			"newline": true,
+			"segments": [
+				{
+					"foreground": "#98C379",
+					"style": "plain",
+					"template": "└",
+					"type": "text"
+				}
+			],
+			"type": "prompt"
+		}
+	],
+	"final_space": true,
+	"version": 3
+}

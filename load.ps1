@@ -1,0 +1,6 @@
+. "$PSScriptRoot\aliases.ps1"
+. "$PSScriptRoot\cdev.ps1"
+. "$PSScriptRoot\fnm.ps1"
+. "$PSScriptRoot\ohmyposh.ps1"
+. "$PSScriptRoot\settings.ps1"
+. "$PSScriptRoot\winget_completions.ps1"
